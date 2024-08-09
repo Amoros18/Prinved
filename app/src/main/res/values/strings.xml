@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Prinved</string>
+    <string name="attention">Attention</string>
+    <string name="back_button">Back</string>
+    <string name="delete">Supprimer</string>
+    <string name="date">Date *</string>
+    <string name="venteEspece">Vente en espece *</string>
+    <string name="venteOm">Vente OM *</string>
+    <string name="depot">Depot</string>
+    <string name="retrait">Retrait</string>
+    <string name="stockage">Stockage</string>
+    <string name="destockage">Destockage</string>
+    <string name="OM">Orange Money</string>
+    <string name="depense">Depense</string>
+    <string name="caisse">Caisse</string>
+    <string name="orangeMoney">Orange Money</string>
+    <string name="delete_question">Etes vous sur de vouloir suprimer?</string>
+    <string name="no_item_description">Oops!\nPas des donnees dans l inventaire.\nTap + to add.</string>
+    <string name="edit_item_title">Visionneuse</string>
+    <string name="edit">Modifier</string>
+    <string name="item">Item</string>
+    <string name="item_detail_title">Details</string>
+    <string name="item_entry_title">Ajouter</string>
+    <string name="item_name_req">Item Name*</string>
+    <string name="item_price_req">Item Price*</string>
+    <string name="no">No</string>
+    <string name="price">Price</string>
+    <string name="save_action">Save</string>
+    <string name="sell">Sell</string>
+    <string name="yes">Yes</string>
+    <string name="required_fields">* champs requis</string>
+</resources>
