@@ -10,18 +10,14 @@ import com.example.prinved.data.ItemsRepository
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
-import java.text.NumberFormat
 
 class ItemEntryViewModel(private val itemsRepository: ItemsRepository) : ViewModel() {
 
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
-
-    var secondItemUiState by mutableStateOf(LastItemUiState())
 
     val uiState: StateFlow<ItemDetailsUiState> =
         itemsRepository.getLastItemsStream()
@@ -54,11 +50,6 @@ class ItemEntryViewModel(private val itemsRepository: ItemsRepository) : ViewMod
         }
     }
 }
-
-data class LastItemUiState(
-    val itemDetails: ItemDetails = ItemDetails(),
-    val isEntryValid: Boolean = false
-)
 
 data class ItemUiState(
     val itemDetails: ItemDetails = ItemDetails(),

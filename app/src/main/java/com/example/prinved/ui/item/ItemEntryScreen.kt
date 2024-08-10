@@ -99,7 +99,7 @@ fun ItemEntryScreen(
                 )
                 .verticalScroll(rememberScrollState())
                 .fillMaxWidth()
-                .background(Color.White)
+                .background(MaterialTheme.colorScheme.background)
         )
     }
 }

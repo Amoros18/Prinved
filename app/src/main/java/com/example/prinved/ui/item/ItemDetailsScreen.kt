@@ -1,6 +1,7 @@
 package com.example.prinved.ui.item
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -89,7 +90,7 @@ fun ItemDetailsScreen(
                         end = WindowInsets.safeDrawing.asPaddingValues()
                             .calculateEndPadding(LocalLayoutDirection.current)
                     ),
-                containerColor = md_theme_light_primary,
+                containerColor = MaterialTheme.colorScheme.primary,
                 contentColor = Color.White
 
             ) {
@@ -140,8 +141,12 @@ private fun ItemDetailsBody(
             onClick = { deleteConfirmationRequired = true },
             shape = MaterialTheme.shapes.small,
             modifier = Modifier.fillMaxWidth()
+                .background(color = MaterialTheme.colorScheme.primary)
         ) {
-            Text(stringResource(R.string.delete))
+            Text(
+                stringResource(R.string.delete),
+                color = MaterialTheme.colorScheme.onPrimary
+            )
         }
         Spacer(modifier = Modifier.height(20.dp))
         if (deleteConfirmationRequired) {

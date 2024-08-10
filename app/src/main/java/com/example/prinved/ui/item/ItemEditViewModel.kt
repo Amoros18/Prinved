@@ -9,9 +9,12 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.prinved.data.ItemsRepository
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import java.util.Locale.filter
 
 class ItemEditViewModel(
     savedStateHandle: SavedStateHandle,
@@ -61,15 +64,20 @@ class ItemEditViewModel(
             id = itemId
             while (id != lastItemUiState.itemDetails.id + 1){
 
-                item1 = itemsRepository.getItemStream(id)
-                    .filterNotNull()
-                    .first()
-                    .toItemUiState(true)
-                updateOneUiSte(item1.itemDetails.copy(
-                    orange_money = (item1.itemDetails.orange_money.toInt() - ajoutOM).toString(),
-                    caisse = (item1.itemDetails.caisse.toInt() - ajoutCaisse).toString()
-                ))
-                itemsRepository.updateItem(item1.itemDetails.toItem())
+                if (itemsRepository.getItemStream(id)
+                        .first()
+                        != null){
+                    item1 = itemsRepository.getItemStream(id)
+                        .filterNotNull()
+                        .first()
+                        .toItemUiState(true)
+
+                    updateOneUiSte(item1.itemDetails.copy(
+                        orange_money = (item1.itemDetails.orange_money.toInt() - ajoutOM).toString(),
+                        caisse = (item1.itemDetails.caisse.toInt() - ajoutCaisse).toString()
+                    ))
+                    itemsRepository.updateItem(item1.itemDetails.toItem())
+                }
                 id += 1
             }
 
